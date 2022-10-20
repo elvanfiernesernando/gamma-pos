@@ -1,9 +1,16 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Sidebar from "./pages/Sidebar";
+
 
 export default function App() {
   return (
-    <div className="text-lg">
-      <h1>Hello React!</h1>
-    </div>
+
+    <Routes>
+      <Route element={<Sidebar />}>
+        <Route index element={<h1>Ini outlet content</h1>} />
+      </Route>
+    </Routes>
+
   );
 }
