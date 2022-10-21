@@ -1,14 +1,21 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Sidebar from "./pages/Sidebar";
+import MainLayout from "./layouts/MainLayout";
+import Menu from "./pages/Menu";
+import Favourite from "./pages/Favourite";
+import Management from "./pages/Management";
+import Settings from "./pages/Settings";
 
 
 export default function App() {
   return (
 
     <Routes>
-      <Route element={<Sidebar />}>
-        <Route index element={<h1>Ini outlet content</h1>} />
+      <Route element={<MainLayout />}>
+        <Route index element={<Menu />} />
+        <Route path="/favourite" element={<Favourite />} />
+        <Route path="/management" element={<Management />} />
+        <Route path="/settings" element={<Settings />} />
       </Route>
     </Routes>
 
