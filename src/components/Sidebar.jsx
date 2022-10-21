@@ -16,13 +16,13 @@ export default function Sidebar() {
 
 
     return (
-        <aside className='h-screen w-[240px] bg-white px-8 py-10 flex flex-col justify-between gap-12 shadow-lg active'>
+        <aside className='h-screen w-[280px] bg-white px-8 py-10 flex flex-col justify-between gap-12 shadow-lg active'>
 
             <div className='flex justify-start items-center gap-4 font-semibold'>
                 <div className='p-2 bg-[#1D03BD] rounded-full'>
                     <HiOutlineLightBulb className='text-2xl text-white' />
                 </div>
-                <h1 className='text-[#1D03BD] text-xl select-none'>Gamma-POS</h1>
+                <h1 className='text-[#1D03BD] text-md select-none'>Gamma-POS</h1>
             </div>
 
             <menu className='flex-1'>

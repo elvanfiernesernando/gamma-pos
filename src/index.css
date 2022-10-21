@@ -11,3 +11,21 @@
 .html {
     scroll-behavior: smooth;
 }
+
+@layer utilities {
+    .scrollbar::-webkit-scrollbar {
+        @apply w-2 h-2
+    }
+
+    /* .scrollbar::-webkit-scrollbar-track {
+    @apply rounded-full bg-red-200
+    } */
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-[#eae8fb] rounded-lg
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+        @apply bg-[#cac3fa]
+    }
+}

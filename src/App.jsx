@@ -11,7 +11,7 @@ export default function App() {
   return (
 
     <Routes>
-      <Route element={<MainLayout />}>
+      <Route path={"/"} element={<MainLayout />}>
         <Route index element={<Menu />} />
         <Route path="/favourite" element={<Favourite />} />
         <Route path="/management" element={<Management />} />
