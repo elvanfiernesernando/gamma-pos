@@ -49,158 +49,62 @@ export default function Menu() {
                 <div className='flex-1 overflow-y-auto grid grid-cols-4 gap-4  overflow-x-hidden scrollbar pb-8'>
 
                     <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
+                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
                         <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
                         <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
+                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
                     </article>
 
                     <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
+                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
                         <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
                         <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
+                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
                     </article>
 
                     <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
+                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
                         <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
                         <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
+                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
                     </article>
 
                     <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
+                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
                         <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
                         <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
+                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
                     </article>
 
                     <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
+                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
                         <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
                         <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
+                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
                     </article>
 
                     <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
+                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
                         <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
                         <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
+                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
                     </article>
 
                     <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
+                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
                         <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
                         <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
+                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
                     </article>
 
                     <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
+                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
                         <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
                         <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
+                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
                     </article>
 
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
 
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] text-white rounded-lg'>Add to Cart</button>
-                    </article>
 
 
                 </div>
@@ -233,8 +137,6 @@ export default function Menu() {
                     {/* Current order */}
                     <div className='flex flex-col gap-4 overflow-y-auto scrollbar max-h-[285px] 2xl:max-h-[570px] flex-1'>
 
-
-
                         <article className='flex justify-between items-center'>
                             <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
                             <div className='flex flex-col justify-center flex-1 px-4'>
@@ -245,58 +147,7 @@ export default function Menu() {
                                 <button className='p-2'>
                                     <HiOutlineMinus className='text-sm' />
                                 </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button className='p-2'>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-1'>
-                                <button className='p-2'>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button className='p-2'>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-1'>
-                                <button className='p-2'>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button className='p-2'>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-1'>
-                                <button className='p-2'>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
+                                <input type={"text"} className='border border-solid border-slate-500 w-8 text-center focus:outline-none' value={2} />
                                 <button className='p-2'>
                                     <HiOutlinePlus className='text-sm' />
                                 </button>
@@ -329,7 +180,7 @@ export default function Menu() {
                             <button className='border border-solid border-[#1D03BD] rounded-lg p-2 shadow-lg'>
                                 <HiOutlineClipboardList className='text-2xl text-slate-500' />
                             </button>
-                            <button className='bg-[#1D03BD] p-2 text-white flex-1 rounded-lg'>Charge Rp. 14.900,-</button>
+                            <button className='bg-[#1D03BD] hover:bg-[#190983] p-2 text-white flex-1 rounded-lg'>Charge Rp. 14.900,-</button>
                         </div>
                     </div>
 

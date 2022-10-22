@@ -28,7 +28,7 @@ export default function Sidebar() {
 
             {/* Nav Menu */}
             <menu className='flex-1'>
-                <nav className='flex flex-col gap-10'>
+                <nav className='flex flex-col gap-6 2xl:gap-10'>
 
                     <NavLink to={"/"} end className={({ isActive }) => isActive ? navActive : navNormal}
                         children={({ isActive }) => {
@@ -58,7 +58,7 @@ export default function Sidebar() {
                                 <>
                                     <HiOutlineCollection className={iconClass} />
                                     <h2 className={h2Class}>
-                                        Order History
+                                        History
                                     </h2>
                                 </>
                             )
