@@ -103,12 +103,12 @@ export default function Sidebar() {
                 </nav>
             </menu>
 
-            <Link className="flex justify-start items-center p-4 gap-4 text-md group hover:bg-[#9f9cb6] rounded-lg" >
+            <button className="flex justify-start items-center p-4 gap-4 text-md group hover:bg-[#9f9cb6] rounded-lg" >
                 <HiOutlineLogout className='text-2xl text-slate-500 group-hover:text-white' />
                 <h2 className='text-slate-800 group-hover:text-white'>
                     Logout
                 </h2>
-            </Link>
+            </button>
 
         </aside>
     )
