@@ -1,5 +1,5 @@
 import React from 'react';
-import { HiOutlineBell, HiOutlineSearch, HiOutlinePencilAlt, HiOutlinePlus, HiOutlineMinus } from 'react-icons/hi'
+import { HiOutlineBell, HiOutlineSearch, HiOutlinePencilAlt, HiOutlinePlus, HiOutlineMinus, HiOutlineClipboardList } from 'react-icons/hi'
 
 export default function Menu() {
     return (
@@ -780,7 +780,12 @@ export default function Menu() {
                             <h3 className='text-slate-400 pt-2'>Total</h3>
                             <p className=' text-slate-700 font-semibold'>Rp. 14.900,-</p>
                         </div>
-                        <button className='bg-[#1D03BD] w-full py-2 text-white rounded-lg'>Charge Rp. 14.900,-</button>
+                        <div className='w-full flex items-center justify-between gap-2'>
+                            <button className='border border-solid border-[#1D03BD] rounded-lg p-2 shadow-lg'>
+                                <HiOutlineClipboardList className='text-2xl text-slate-500' />
+                            </button>
+                            <button className='bg-[#1D03BD] p-2 text-white flex-1 rounded-lg'>Charge Rp. 14.900,-</button>
+                        </div>
                     </div>
 
                 </div>
