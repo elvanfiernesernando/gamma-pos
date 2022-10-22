@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { HiOutlineLightBulb, HiOutlineShoppingBag, HiOutlineCog, HiOutlineArchive, HiOutlineHeart, HiOutlineLogout } from 'react-icons/hi'
+import { NavLink } from 'react-router-dom';
+import { HiOutlineLightBulb, HiOutlineShoppingBag, HiOutlineCog, HiOutlineArchive, HiOutlineHeart, HiOutlineLogout, HiOutlineCollection } from 'react-icons/hi'
 
 export default function Sidebar() {
 
@@ -41,6 +41,24 @@ export default function Sidebar() {
                                     <HiOutlineShoppingBag className={iconClass} />
                                     <h2 className={h2Class}>
                                         Menu
+                                    </h2>
+                                </>
+                            )
+                        }}
+                    >
+                    </NavLink>
+
+                    <NavLink to={"/history"} end className={({ isActive }) => isActive ? navActive : navNormal}
+                        children={({ isActive }) => {
+
+                            const iconClass = isActive ? navIconActive : navIconNormal;
+                            const h2Class = isActive ? navH2Active : navH2Normal;
+
+                            return (
+                                <>
+                                    <HiOutlineCollection className={iconClass} />
+                                    <h2 className={h2Class}>
+                                        Order History
                                     </h2>
                                 </>
                             )

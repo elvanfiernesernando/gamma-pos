@@ -214,9 +214,9 @@ export default function Menu() {
                 {/* Customer */}
                 <div className='flex justify-between items-center h-12 bg-white shadow-lg gap-4 rounded-lg'>
                     {/* <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" /> */}
-                    <h3 className='text-slate-700 pl-4 w-full font-semibold'>New Customer</h3>
+                    <h3 className='text-slate-700 pl-4 py-4 w-full font-semibold'>New Customer</h3>
                     <button className='h-full p-4'>
-                        <HiOutlinePencilAlt className='text-xl text-slate-500' />
+                        <HiOutlinePencilAlt className='text-2xl text-slate-500' />
                     </button>
                 </div>
 
