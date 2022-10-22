@@ -18,6 +18,7 @@ export default function Sidebar() {
     return (
         <aside className='h-screen w-[280px] bg-white px-8 py-10 flex flex-col justify-between gap-12 shadow-lg active'>
 
+            {/* Logo / Brands */}
             <div className='flex justify-start items-center gap-4 font-semibold'>
                 <div className='p-2 bg-[#1D03BD] rounded-full'>
                     <HiOutlineLightBulb className='text-2xl text-white' />
@@ -25,6 +26,7 @@ export default function Sidebar() {
                 <h1 className='text-[#1D03BD] text-md select-none'>Gamma-POS</h1>
             </div>
 
+            {/* Nav Menu */}
             <menu className='flex-1'>
                 <nav className='flex flex-col gap-10'>
 
@@ -103,6 +105,7 @@ export default function Sidebar() {
                 </nav>
             </menu>
 
+            {/* Logout Button */}
             <button className="flex justify-start items-center p-4 gap-4 text-md group hover:bg-[#9f9cb6] rounded-lg" >
                 <HiOutlineLogout className='text-2xl text-slate-500 group-hover:text-white' />
                 <h2 className='text-slate-800 group-hover:text-white'>

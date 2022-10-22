@@ -9,40 +9,40 @@ export default function Menu() {
 
                 {/* Search Panel */}
                 <div className='w-full h-12 flex justify-between items-center gap-4'>
-                    <div className='flex justify-start w-full'>
+                    <div className='flex justify-start w-full shadow-lg'>
                         <label htmlFor="searchMenu" className="text-2xl text-slate-500 bg-white p-4 rounded-l-lg" >
                             <HiOutlineSearch />
                         </label>
 
                         <input type="text" placeholder='Search menu' id='searchMenu' className='rounded-r-lg flex-1 outline-none' />
                     </div>
-                    <div className='bg-white p-4 rounded-lg'>
+                    <button className='bg-white p-4 rounded-lg shadow-lg'>
                         <HiOutlineBell className='text-2xl text-slate-500' />
-                    </div>
+                    </button>
                 </div>
 
                 {/* Category */}
                 <div className='w-full overflow-x-auto scrollbar flex items-center gap-4 pb-4'>
-                    <button className='px-8 py-4 bg-white rounded-lg border-solid border-2 border-[#1D03BD]'>All</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Makanan</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Minuman</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Sayuran</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Snack</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Coofee</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Cookies</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Bread</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Snack</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Coofee</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Cookies</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Bread</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Snack</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Coofee</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Cookies</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Bread</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Snack</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Coofee</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Cookies</button>
-                    <button className='px-8 py-4 bg-white rounded-lg hover:border-2'>Bread</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg border-solid border-2 border-[#1D03BD]'>All</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Makanan</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Minuman</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Sayuran</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Snack</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Coofee</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Cookies</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Bread</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Snack</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Coofee</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Cookies</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Bread</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Snack</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Coofee</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Cookies</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Bread</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Snack</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Coofee</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Cookies</button>
+                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Bread</button>
                 </div>
 
                 {/* Product Panel */}
@@ -211,6 +211,7 @@ export default function Menu() {
             {/* Right content */}
             <div className='w-[350px] flex flex-col pr-10 py-10 gap-4'>
 
+                {/* Customer */}
                 <div className='flex justify-between items-center h-12 bg-white shadow-lg gap-4 rounded-lg'>
                     {/* <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" /> */}
                     <h3 className='text-slate-700 pl-4 w-full font-semibold'>New Customer</h3>
@@ -219,6 +220,7 @@ export default function Menu() {
                     </button>
                 </div>
 
+                {/* Order Detail */}
                 <div className='flex flex-col justify-between p-4 bg-white shadow-lg gap-4 h-full rounded-lg'>
 
                     {/* Title */}
@@ -229,7 +231,7 @@ export default function Menu() {
 
 
                     {/* Current order */}
-                    <div className='flex flex-col gap-4 overflow-y-auto scrollbar max-h-[285px] 2xl:max-h-[570px]'>
+                    <div className='flex flex-col gap-4 overflow-y-auto scrollbar max-h-[285px] 2xl:max-h-[570px] flex-1'>
 
 
 
@@ -239,29 +241,12 @@ export default function Menu() {
                                 <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
                                 <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
                             </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
+                            <div className='flex items-center gap-1'>
+                                <button className='p-2'>
                                     <HiOutlineMinus className='text-sm' />
                                 </button>
                                 <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
+                                <button className='p-2'>
                                     <HiOutlinePlus className='text-sm' />
                                 </button>
                             </div>
@@ -273,12 +258,12 @@ export default function Menu() {
                                 <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
                                 <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
                             </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
+                            <div className='flex items-center gap-1'>
+                                <button className='p-2'>
                                     <HiOutlineMinus className='text-sm' />
                                 </button>
                                 <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
+                                <button className='p-2'>
                                     <HiOutlinePlus className='text-sm' />
                                 </button>
                             </div>
@@ -290,12 +275,12 @@ export default function Menu() {
                                 <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
                                 <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
                             </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
+                            <div className='flex items-center gap-1'>
+                                <button className='p-2'>
                                     <HiOutlineMinus className='text-sm' />
                                 </button>
                                 <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
+                                <button className='p-2'>
                                     <HiOutlinePlus className='text-sm' />
                                 </button>
                             </div>
@@ -307,458 +292,18 @@ export default function Menu() {
                                 <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
                                 <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
                             </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
+                            <div className='flex items-center gap-1'>
+                                <button className='p-2'>
                                     <HiOutlineMinus className='text-sm' />
                                 </button>
                                 <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
+                                <button className='p-2'>
                                     <HiOutlinePlus className='text-sm' />
                                 </button>
                             </div>
                         </article>
 
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
 
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza Terakhir</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900 Terakhir</p>
-                            </div>
-                            <div className='flex items-center gap-4'>
-                                <button>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <p className='border border-solid border-slate-500 w-8 text-center'>1</p>
-                                <button>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
 
 
 
@@ -789,9 +334,6 @@ export default function Menu() {
                     </div>
 
                 </div>
-
-
-
 
             </div>
 
