@@ -48,6 +48,23 @@ export default function Menu() {
             })
     }
 
+    // search products
+    const searchProducts = (e) => {
+
+        const query = e.target.value;
+        axios.post("http://localhost:5000/api/products/search", {
+            query: query
+        })
+            .then((res) => {
+                setProducts(res.data.data);
+                setActiveCategory("All")
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+
+    }
+
     return (
         <div className='w-full h-full flex'>
             {/* Left content */}
@@ -56,11 +73,11 @@ export default function Menu() {
                 {/* Search Panel */}
                 <div className='w-full h-12 flex justify-between items-center gap-4'>
                     <div className='flex justify-start w-full shadow-lg'>
-                        <label htmlFor="searchMenu" className="text-2xl text-slate-500 bg-white p-4 rounded-l-lg" >
+                        <label htmlFor="searchProducts" className="text-2xl text-slate-500 bg-white p-4 rounded-l-lg" >
                             <HiOutlineSearch />
                         </label>
 
-                        <input type="text" placeholder='Search menu' id='searchMenu' className='rounded-r-lg flex-1 outline-none' />
+                        <input type="text" placeholder='Search products ...' id='searchProducts' name='searchProducts' className='rounded-r-lg flex-1 outline-none' onChange={searchProducts} />
                     </div>
                     <button className='bg-white p-4 rounded-lg shadow-lg'>
                         <HiOutlineBell className='text-2xl text-slate-500' />
