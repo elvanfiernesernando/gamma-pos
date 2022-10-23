@@ -1,7 +1,53 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { HiOutlineBell, HiOutlineSearch, HiOutlinePencilAlt, HiOutlinePlus, HiOutlineMinus, HiOutlineClipboardList } from 'react-icons/hi'
 
 export default function Menu() {
+
+    const [categories, setCategories] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [activeCategory, setActiveCategory] = useState("All");
+
+    // component did mount
+    useEffect(() => {
+        getAllCategories();
+        getAllProducts();
+    }, [])
+
+    // get all categories
+    const getAllCategories = () => {
+        axios.get("http://localhost:5000/api/categories")
+            .then((res) => {
+                setCategories(res.data.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+    }
+
+    // get all products
+    const getAllProducts = () => {
+        axios.get("http://localhost:5000/api/products")
+            .then((res) => {
+                setProducts(res.data.data)
+            })
+            .catch((error) => {
+                console.info(error)
+            })
+    }
+
+    // get products by category id
+    const getProductsByCategory = (id) => {
+
+        axios.get(`http://localhost:5000/api/categories/${id}`)
+            .then((res) => {
+                setProducts(res.data.data.products)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }
+
     return (
         <div className='w-full h-full flex'>
             {/* Left content */}
@@ -23,89 +69,35 @@ export default function Menu() {
 
                 {/* Category */}
                 <div className='w-full overflow-x-auto scrollbar flex items-center gap-4 pb-4'>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg border-solid border-2 border-[#1D03BD]'>All</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Makanan</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Minuman</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Sayuran</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Snack</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Coofee</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Cookies</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Bread</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Snack</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Coofee</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Cookies</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Bread</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Snack</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Coofee</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Cookies</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Bread</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Snack</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Coofee</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Cookies</button>
-                    <button className='px-8 py-4 bg-white shadow-lg rounded-lg hover:border-2'>Bread</button>
+                    <button className={`px-8 py-4 bg-white shadow-lg rounded-lg ${activeCategory === "All" ? "border-solid border-2 border-[#1D03BD]" : "hover:border-2"}`} onClick={() => {
+                        getAllProducts();
+                        setActiveCategory("All");
+                    }}>All</button>
+
+                    {categories.map((e) => {
+                        return (
+                            <button onClick={() => {
+                                getProductsByCategory(e.id);
+                                setActiveCategory(e.name);
+                            }} key={e.id} className={`px-8 py-4 bg-white shadow-lg rounded-lg ${activeCategory === e.name ? "border-solid border-2 border-[#1D03BD]" : "hover:border-2"}`}>{e.name}</button>
+                        )
+                    })}
+
                 </div>
 
                 {/* Product Panel */}
                 <div className='flex-1 overflow-y-auto grid grid-cols-4 gap-4  overflow-x-hidden scrollbar pb-8'>
 
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-                    <article className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                        <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
-                        <h3 className='font-semibold text-[#1D03BD]'>Cornetto Pizza</h3>
-                        <p>Rp. 19.900</p>
-                        <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
-                    </article>
-
-
-
+                    {products.map((e) => {
+                        return (
+                            <article key={e.id} className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
+                                <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
+                                <h3 className='font-semibold text-[#1D03BD]'>{e.name}</h3>
+                                <p>Rp. {e.price}</p>
+                                <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
+                            </article>
+                        )
+                    })}
 
                 </div>
 
