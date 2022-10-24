@@ -8,6 +8,7 @@ export default function Menu() {
     const [products, setProducts] = useState([]);
     const [activeCategory, setActiveCategory] = useState("All");
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) ? JSON.parse(localStorage.getItem("cart")) : []);
+    const [timer, setTimer] = useState(null);
 
     // component did mount
     useEffect(() => {
@@ -57,88 +58,78 @@ export default function Menu() {
     // search products
     const searchProducts = (e) => {
 
-        const query = e.target.value;
+        clearTimeout(timer)
 
-        axios.post("http://localhost:5000/api/products/search", {
-            query: query
-        })
-            .then((res) => {
-                setProducts(res.data.data);
-                setActiveCategory("All")
+        const newTimer = setTimeout(() => {
+            const query = e.target.value;
+
+            axios.post("http://localhost:5000/api/products/search", {
+                query: query
             })
-            .catch((error) => {
-                console.error(error)
-            })
+                .then((res) => {
+                    setProducts(res.data.data);
+                    setActiveCategory("All")
+                })
+                .catch((error) => {
+                    console.error(error)
+                })
+        }, 1000)
+
+        setTimer(newTimer)
 
     }
 
     // add to cart
-    const addToCart = (e) => {
+    const addToCart = (product) => {
+        const newCart = [...cart];
 
-        // check if exist, return boolean
-        const exist = cart.some(c =>
-            c.id === e.id
-        )
+        const index = newCart.findIndex((e) => {
+            return e.id === product.id
+        })
 
-        // if product not exist in localstorage, add product
-        if (!exist) {
-            return (
-                setCart([
-                    ...cart,
-                    {
-                        ...e,
-                        qty: 1
-                    }
-                ])
-            )
+        if (index == -1) {
+            newCart.push({ ...product, qty: 1 });
+        } else {
+            newCart[index].qty += 1;
         }
 
-        // if product exist, increase qty
-        incCart(e);
+        return setCart(newCart);
     }
 
-    // increase qty cart
-    const incCart = (e) => {
+    // change quantity
+    const changeQty = (product, qty) => {
+        const newCart = [...cart];
 
-        // looping and create new array if product exist
-        const newCart = cart.map((c) => {
-            if (c.id === e.id) {
-                return (
-                    {
-                        ...c,
-                        qty: c.qty + 1
-                    }
-                )
-            }
-
-            return c;
+        const index = newCart.findIndex((e) => {
+            return e.id === product.id
         })
 
-        setCart(newCart);
+        const newQty = newCart[index].qty + qty;
 
+        if (newQty === 0) {
+            newCart.splice(index, 1)
+        } else {
+            newCart[index].qty = newQty;
+        }
+
+        return setCart(newCart);
     }
 
-    // decrease qty cart
-    const decCart = (e) => {
+    // change input quantity
+    const inputChangeQty = (product, qty) => {
+        const newCart = [...cart];
 
-        // looping and create new array if product exist
-        const newCart = cart.map((c) => {
-            if (c.id === e.id) {
-
-                return (
-                    {
-                        ...c,
-                        qty: c.qty - 1
-                    }
-                )
-
-            }
-
-            return c;
+        const index = newCart.findIndex((e) => {
+            return e.id === product.id
         })
 
-        setCart(newCart);
+        if (qty === 0) {
+            newCart.splice(index, 1)
+        } else {
+            newCart[index].qty = qty;
+        }
 
+        return setCart(newCart);
     }
 
     return (
@@ -226,23 +217,25 @@ export default function Menu() {
 
                         {cart.map((e) => {
                             return (
-                                <article className='flex justify-between items-center'>
+                                <article key={e.id} className='flex justify-between items-center'>
                                     <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
                                     <div className='flex flex-col justify-center flex-1 px-4'>
                                         <h3 className=' text-[#1D03BD] font-semibold text-sm'>{e.name}</h3>
                                         <p className=' text-slate-500 text-sm'>Rp. {e.price}</p>
                                     </div>
                                     <div className='flex items-center gap-1'>
-                                        <button className='p-2' onClick={() => {
-                                            decCart(e);
-                                        }}>
-                                            <HiOutlineMinus className='text-sm' />
+                                        <button className='p-2'>
+                                            <HiOutlineMinus className='text-sm' onClick={() => {
+                                                changeQty(e, -1)
+                                            }} />
                                         </button>
-                                        <input type={"text"} className='border border-solid border-slate-500 w-8 text-center focus:outline-none' value={e.qty} />
-                                        <button className='p-2' onClick={() => {
-                                            incCart(e)
-                                        }}>
-                                            <HiOutlinePlus className='text-sm' />
+                                        <input type={"text"} className='border border-solid border-slate-500 w-8 text-center focus:outline-none' value={e.qty} onChange={(event) => {
+                                            inputChangeQty(e, event.target.value)
+                                        }} />
+                                        <button className='p-2'>
+                                            <HiOutlinePlus className='text-sm' onClick={() => {
+                                                changeQty(e, 1)
+                                            }} />
                                         </button>
                                     </div>
                                 </article>
