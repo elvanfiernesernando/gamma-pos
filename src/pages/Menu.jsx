@@ -7,12 +7,18 @@ export default function Menu() {
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [activeCategory, setActiveCategory] = useState("All");
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) ? JSON.parse(localStorage.getItem("cart")) : []);
 
     // component did mount
     useEffect(() => {
         getAllCategories();
         getAllProducts();
     }, [])
+
+    // component did update
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart])
 
     // get all categories
     const getAllCategories = () => {
@@ -52,6 +58,7 @@ export default function Menu() {
     const searchProducts = (e) => {
 
         const query = e.target.value;
+
         axios.post("http://localhost:5000/api/products/search", {
             query: query
         })
@@ -62,6 +69,75 @@ export default function Menu() {
             .catch((error) => {
                 console.error(error)
             })
+
+    }
+
+    // add to cart
+    const addToCart = (e) => {
+
+        // check if exist, return boolean
+        const exist = cart.some(c =>
+            c.id === e.id
+        )
+
+        // if product not exist in localstorage, add product
+        if (!exist) {
+            return (
+                setCart([
+                    ...cart,
+                    {
+                        ...e,
+                        qty: 1
+                    }
+                ])
+            )
+        }
+
+        // if product exist, increase qty
+        incCart(e);
+    }
+
+    // increase qty cart
+    const incCart = (e) => {
+
+        // looping and create new array if product exist
+        const newCart = cart.map((c) => {
+            if (c.id === e.id) {
+                return (
+                    {
+                        ...c,
+                        qty: c.qty + 1
+                    }
+                )
+            }
+
+            return c;
+        })
+
+        setCart(newCart);
+
+    }
+
+    // decrease qty cart
+    const decCart = (e) => {
+
+        // looping and create new array if product exist
+        const newCart = cart.map((c) => {
+            if (c.id === e.id) {
+
+                return (
+                    {
+                        ...c,
+                        qty: c.qty - 1
+                    }
+                )
+
+            }
+
+            return c;
+        })
+
+        setCart(newCart);
 
     }
 
@@ -111,7 +187,9 @@ export default function Menu() {
                                 <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
                                 <h3 className='font-semibold text-[#1D03BD]'>{e.name}</h3>
                                 <p>Rp. {e.price}</p>
-                                <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg'>Add to Cart</button>
+                                <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg' onClick={() => {
+                                    addToCart(e)
+                                }}>Add to Cart</button>
                             </article>
                         )
                     })}
@@ -143,29 +221,33 @@ export default function Menu() {
                     </div>
 
 
-                    {/* Current order */}
+                    {/* Cart List */}
                     <div className='flex flex-col gap-4 overflow-y-auto scrollbar max-h-[285px] 2xl:max-h-[570px] flex-1'>
 
-                        <article className='flex justify-between items-center'>
-                            <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
-                            <div className='flex flex-col justify-center flex-1 px-4'>
-                                <h3 className=' text-[#1D03BD] font-semibold text-sm'>Cornetto Pizza</h3>
-                                <p className=' text-slate-500 text-sm'>Rp. 19.900</p>
-                            </div>
-                            <div className='flex items-center gap-1'>
-                                <button className='p-2'>
-                                    <HiOutlineMinus className='text-sm' />
-                                </button>
-                                <input type={"text"} className='border border-solid border-slate-500 w-8 text-center focus:outline-none' value={2} />
-                                <button className='p-2'>
-                                    <HiOutlinePlus className='text-sm' />
-                                </button>
-                            </div>
-                        </article>
-
-
-
-
+                        {cart.map((e) => {
+                            return (
+                                <article className='flex justify-between items-center'>
+                                    <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
+                                    <div className='flex flex-col justify-center flex-1 px-4'>
+                                        <h3 className=' text-[#1D03BD] font-semibold text-sm'>{e.name}</h3>
+                                        <p className=' text-slate-500 text-sm'>Rp. {e.price}</p>
+                                    </div>
+                                    <div className='flex items-center gap-1'>
+                                        <button className='p-2' onClick={() => {
+                                            decCart(e);
+                                        }}>
+                                            <HiOutlineMinus className='text-sm' />
+                                        </button>
+                                        <input type={"text"} className='border border-solid border-slate-500 w-8 text-center focus:outline-none' value={e.qty} />
+                                        <button className='p-2' onClick={() => {
+                                            incCart(e)
+                                        }}>
+                                            <HiOutlinePlus className='text-sm' />
+                                        </button>
+                                    </div>
+                                </article>
+                            )
+                        })}
 
                     </div>
 
