@@ -7,8 +7,9 @@ export default function Menu() {
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [activeCategory, setActiveCategory] = useState("All");
-    const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) ? JSON.parse(localStorage.getItem("cart")) : []);
     const [timer, setTimer] = useState(null);
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) ? JSON.parse(localStorage.getItem("cart")) : []);
+    const [total, setTotal] = useState(0);
 
     // component did mount
     useEffect(() => {
@@ -19,6 +20,13 @@ export default function Menu() {
     // component did update
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
+
+        const result = cart.reduce((prev, current) => {
+            return prev + (current.price * current.qty)
+        }, 0)
+
+        setTotal(result);
+
     }, [cart])
 
     // get all categories
@@ -88,7 +96,12 @@ export default function Menu() {
         })
 
         if (index == -1) {
-            newCart.push({ ...product, qty: 1 });
+            newCart.push({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                qty: 1
+            });
         } else {
             newCart[index].qty += 1;
         }
@@ -123,13 +136,54 @@ export default function Menu() {
             return e.id === product.id
         })
 
-        if (qty === 0) {
-            newCart.splice(index, 1)
+        if (qty === "" || qty === 0) {
+            newCart[index].qty = 0;
         } else {
             newCart[index].qty = qty;
         }
 
+        if (newCart[index].qty === 0) {
+            newCart.splice(index, 1)
+        }
+
         return setCart(newCart);
+    }
+
+    // format currency
+    const currencyFormat = (number) => {
+        return (number || "")
+            .toString()
+            .replace(/^0|\./g, "")
+            .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    }
+
+    // handleSubmit
+    const handleSubmit = () => {
+        const order_details = cart.map((e) => {
+            return (
+                {
+                    products_id: e.id,
+                    price: e.price,
+                    qty: e.qty
+                }
+            )
+        })
+
+        if (!order_details || !total) {
+            return alert("Cart is empty!")
+        }
+
+        axios.post("http://localhost:5000/api/orders", {
+            order_details: order_details,
+            total: total
+        })
+            .then((res) => {
+                alert("Order berhasil dibuat!");
+                setCart([])
+            })
+            .catch((error) => {
+                console.error(error)
+            })
     }
 
     return (
@@ -177,7 +231,7 @@ export default function Menu() {
                             <article key={e.id} className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
                                 <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
                                 <h3 className='font-semibold text-[#1D03BD]'>{e.name}</h3>
-                                <p>Rp. {e.price}</p>
+                                <p>Rp. {currencyFormat(e.price)}</p>
                                 <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg' onClick={() => {
                                     addToCart(e)
                                 }}>Add to Cart</button>
@@ -221,7 +275,7 @@ export default function Menu() {
                                     <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
                                     <div className='flex flex-col justify-center flex-1 px-4'>
                                         <h3 className=' text-[#1D03BD] font-semibold text-sm'>{e.name}</h3>
-                                        <p className=' text-slate-500 text-sm'>Rp. {e.price}</p>
+                                        <p className=' text-slate-500 text-sm'>Rp. {currencyFormat(e.price)}</p>
                                     </div>
                                     <div className='flex items-center gap-1'>
                                         <button className='p-2'>
@@ -249,22 +303,22 @@ export default function Menu() {
                     <div className='flex flex-col gap-2'>
                         <div className='flex justify-between items-center'>
                             <h3 className='text-slate-400'>Sub Total</h3>
-                            <p className=' text-slate-700 font-semibold'>Rp. 19.900,-</p>
+                            <p className=' text-slate-700 font-semibold'>Rp. {total === 0 ? "0" : currencyFormat(total)},-</p>
                         </div>
                         <div className='flex justify-between items-center pt-2'>
                             <h3 className='text-slate-400'>Discount</h3>
-                            <p className=' text-slate-700 font-semibold'>Rp. 5000,-</p>
+                            <p className=' text-slate-700 font-semibold'>Rp. 0,-</p>
                         </div>
                         <hr />
                         <div className='flex justify-between items-center pb-2'>
                             <h3 className='text-slate-400 pt-2'>Total</h3>
-                            <p className=' text-slate-700 font-semibold'>Rp. 14.900,-</p>
+                            <p className=' text-slate-700 font-semibold'>Rp. {total === 0 ? "0" : currencyFormat(total)},-</p>
                         </div>
                         <div className='w-full flex items-center justify-between gap-2'>
                             <button className='border border-solid border-[#1D03BD] rounded-lg p-2 shadow-lg'>
                                 <HiOutlineClipboardList className='text-2xl text-slate-500' />
                             </button>
-                            <button className='bg-[#1D03BD] hover:bg-[#190983] p-2 text-white flex-1 rounded-lg'>Charge Rp. 14.900,-</button>
+                            <button className='bg-[#1D03BD] hover:bg-[#190983] p-2 text-white flex-1 rounded-lg' onClick={handleSubmit}>Charge Rp. {total === 0 ? "0" : currencyFormat(total)},-</button>
                         </div>
                     </div>
 
