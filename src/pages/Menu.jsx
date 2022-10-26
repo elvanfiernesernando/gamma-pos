@@ -111,42 +111,63 @@ export default function Menu() {
 
     // change quantity
     const changeQty = (product, qty) => {
+        // duplicate cart
         const newCart = [...cart];
 
+        // find product index from cart
         const index = newCart.findIndex((e) => {
             return e.id === product.id
         })
 
+        // change product qty
         const newQty = newCart[index].qty + qty;
 
-        if (newQty === 0) {
-            newCart.splice(index, 1)
-        } else {
-            newCart[index].qty = newQty;
+        // check if qty < 1, remove from product cart
+        if (newQty < 1) {
+            newCart.splice(index, 1);
+
+            return setCart(newCart);
         }
 
+        // else, set product qty from input qty
+        newCart[index].qty = newQty;
+
+        // set new cart
         return setCart(newCart);
     }
 
     // change input quantity
     const inputChangeQty = (product, qty) => {
+        // duplicate cart
         const newCart = [...cart];
 
+        // find product index
         const index = newCart.findIndex((e) => {
             return e.id === product.id
         })
 
-        if (qty === "" || qty === 0) {
-            newCart[index].qty = 0;
-        } else {
-            newCart[index].qty = qty;
-        }
+        // else, set qty from input qty
+        newCart[index].qty = parseInt(qty);
 
-        if (newCart[index].qty === 0) {
-            newCart.splice(index, 1)
-        }
+        // set new cart
+        setCart(newCart);
 
-        return setCart(newCart);
+        clearTimeout(timer);
+
+        const newTimer = setTimeout(() => {
+            // check if input qty < 1, remove from cart
+            if (qty === "" || qty < 1) {
+                newCart.splice(index, 1);
+
+                console.info(newCart);
+
+                setCart([...newCart]);
+            }
+        }, 3000);
+
+        setTimer(newTimer);
+
+
     }
 
     // format currency
@@ -283,9 +304,13 @@ export default function Menu() {
                                                 changeQty(e, -1)
                                             }} />
                                         </button>
-                                        <input type={"text"} className='border border-solid border-slate-500 w-8 text-center focus:outline-none' value={e.qty} onChange={(event) => {
+
+
+                                        <input type={"number"} className='border border-solid border-slate-500 w-8 text-center focus:outline-none' value={e.qty} onChange={(event) => {
                                             inputChangeQty(e, event.target.value)
                                         }} />
+
+
                                         <button className='p-2'>
                                             <HiOutlinePlus className='text-sm' onClick={() => {
                                                 changeQty(e, 1)
