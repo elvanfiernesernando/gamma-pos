@@ -66,24 +66,6 @@ export default function Sidebar() {
                     >
                     </NavLink>
 
-                    <NavLink to={"/favourite"} className={({ isActive }) => isActive ? navActive : navNormal}
-                        children={({ isActive }) => {
-
-                            const iconClass = isActive ? navIconActive : navIconNormal;
-                            const h2Class = isActive ? navH2Active : navH2Normal;
-
-                            return (
-                                <>
-                                    <HiOutlineHeart className={iconClass} />
-                                    <h2 className={h2Class}>
-                                        Favourite
-                                    </h2>
-                                </>
-                            )
-                        }}
-                    >
-                    </NavLink>
-
                     <NavLink to={"/management"} className={({ isActive }) => isActive ? navActive : navNormal}
                         children={({ isActive }) => {
 
