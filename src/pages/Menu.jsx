@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { HiOutlineBell, HiOutlineSearch, HiOutlinePencilAlt, HiOutlinePlus, HiOutlineMinus, HiOutlineClipboardList } from 'react-icons/hi'
+import { HiOutlineBell, HiOutlineSearch, HiOutlinePencilAlt, HiOutlinePlus, HiOutlineMinus, HiOutlineClipboardList } from 'react-icons/hi';
 
 export default function Menu() {
 
@@ -163,7 +163,7 @@ export default function Menu() {
 
                 setCart([...newCart]);
             }
-        }, 3000);
+        }, 1000);
 
         setTimer(newTimer);
 
@@ -208,12 +208,13 @@ export default function Menu() {
     }
 
     return (
+
         <div className='w-full h-full flex'>
             {/* Left content */}
-            <div className='w-[800px] flex-1 flex flex-col px-10 pt-10 gap-8'>
+            <div className='w-[800px] flex-1 flex flex-col pt-10 gap-8'>
 
                 {/* Search Panel */}
-                <div className='w-full h-12 flex justify-between items-center gap-4'>
+                <div className='w-full h-12 flex justify-between items-center gap-4 px-10'>
                     <div className='flex justify-start w-full shadow-lg'>
                         <label htmlFor="searchProducts" className="text-2xl text-slate-500 bg-white p-4 rounded-l-lg" >
                             <HiOutlineSearch />
@@ -227,7 +228,7 @@ export default function Menu() {
                 </div>
 
                 {/* Category */}
-                <div className='w-full overflow-x-auto scrollbar flex items-center gap-4 pb-4'>
+                <div className='w-full overflow-x-auto scrollbar flex items-center gap-4 pb-4 px-10'>
                     <button className={`px-8 py-4 bg-white shadow-lg rounded-lg ${activeCategory === "All" ? "border-solid border-2 border-[#1D03BD]" : "hover:border-2"}`} onClick={() => {
                         getAllProducts();
                         setActiveCategory("All");
@@ -245,7 +246,7 @@ export default function Menu() {
                 </div>
 
                 {/* Product Panel */}
-                <div className='flex-1 overflow-y-auto grid grid-cols-4 gap-4  overflow-x-hidden scrollbar pb-8'>
+                <div className='flex-1 overflow-y-auto grid grid-cols-4 gap-4  overflow-x-hidden scrollbar pb-8 pl-10 pr-4 mr-4'>
 
                     {products.map((e) => {
                         return (
@@ -343,7 +344,7 @@ export default function Menu() {
                             <button className='border border-solid border-[#1D03BD] rounded-lg p-2 shadow-lg'>
                                 <HiOutlineClipboardList className='text-2xl text-slate-500' />
                             </button>
-                            <button className='bg-[#1D03BD] hover:bg-[#190983] p-2 text-white flex-1 rounded-lg' onClick={handleSubmit}>Charge Rp. {total === 0 ? "0" : currencyFormat(total)},-</button>
+                            <button className='bg-[#1D03BD] hover:bg-[#190983] p-2 text-white flex-1 rounded-lg' onClick={handleSubmit}>Pay Now Rp. {total === 0 ? "0" : currencyFormat(total)},-</button>
                         </div>
                     </div>
 
@@ -352,5 +353,6 @@ export default function Menu() {
             </div>
 
         </div >
+
     )
 }
