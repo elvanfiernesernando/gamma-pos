@@ -22,10 +22,22 @@
     } */
 
     .scrollbar::-webkit-scrollbar-thumb {
-        @apply bg-[#eae8fb] rounded-lg
+        @apply bg-[#eae8fb] rounded-md
     }
 
     .scrollbar::-webkit-scrollbar-thumb:hover {
         @apply bg-[#cac3fa]
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
     }
 }
