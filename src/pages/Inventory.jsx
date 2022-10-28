@@ -1,11 +1,11 @@
 import React from 'react';
 import { HiPlus } from "react-icons/hi";
 
-export default function Management() {
+export default function Inventory() {
     return (
         <div className='w-full h-full overflow-y-auto flex flex-col p-10 gap-8'>
 
-            <h2 className='font-semibold text-2xl text-slate-700'>Management</h2>
+            <h2 className='font-semibold text-2xl text-slate-700'>Inventory</h2>
 
             <div className='relative'>
 

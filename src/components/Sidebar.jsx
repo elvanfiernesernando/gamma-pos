@@ -30,6 +30,7 @@ export default function Sidebar() {
             <menu className='flex-1'>
                 <nav className='flex flex-col gap-6 2xl:gap-10'>
 
+                    {/* Menu */}
                     <NavLink to={"/"} end className={({ isActive }) => isActive ? navActive : navNormal}
                         children={({ isActive }) => {
 
@@ -48,6 +49,7 @@ export default function Sidebar() {
                     >
                     </NavLink>
 
+                    {/* History */}
                     <NavLink to={"/history"} end className={({ isActive }) => isActive ? navActive : navNormal}
                         children={({ isActive }) => {
 
@@ -66,7 +68,8 @@ export default function Sidebar() {
                     >
                     </NavLink>
 
-                    <NavLink to={"/management"} className={({ isActive }) => isActive ? navActive : navNormal}
+                    {/* Inventory */}
+                    <NavLink to={"/inventory"} className={({ isActive }) => isActive ? navActive : navNormal}
                         children={({ isActive }) => {
 
                             const iconClass = isActive ? navIconActive : navIconNormal;
@@ -76,7 +79,7 @@ export default function Sidebar() {
                                 <>
                                     <HiOutlineArchive className={iconClass} />
                                     <h2 className={h2Class}>
-                                        Management
+                                        Inventory
                                     </h2>
                                 </>
                             )
@@ -84,6 +87,7 @@ export default function Sidebar() {
                     >
                     </NavLink>
 
+                    {/* Settings */}
                     <NavLink to={"/settings"} className={({ isActive }) => isActive ? navActive : navNormal}
                         children={({ isActive }) => {
 

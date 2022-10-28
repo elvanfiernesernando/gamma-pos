@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { HiPlus } from "react-icons/hi";
+import { HiOutlineReceiptRefund, HiOutlineCheck } from "react-icons/hi";
 
 export default function History() {
 
@@ -34,7 +34,7 @@ export default function History() {
     return (
         <div className='w-full h-full overflow-y-auto flex flex-col p-10 gap-8'>
 
-            <h2 className='font-semibold text-2xl text-slate-700'>Transactions History</h2>
+            <h2 className='font-semibold text-2xl text-slate-700'>History</h2>
 
             <div className='relative'>
 
@@ -42,13 +42,13 @@ export default function History() {
 
                 <div className="overflow-x-auto shadow-md relative z-[2] m-8" >
 
-                    {/* <div className='flex justify-between mb-4'>
-                        <h3 className='font-semibold text-white text-lg'>Categories</h3>
-                        <button className='text-grey-400 font-semibold py-2 px-4 bg-white rounded-md shadow-lg hover:bg-gray-100 flex items-center gap-1'>
-                            <HiPlus className='text-lg' />
-                            Create New
+                    <div className='flex justify-between mb-4'>
+                        <h3 className='font-semibold text-white text-lg'>Transactions History</h3>
+                        <button className='text-grey-400 font-semibold py-2 px-4 bg-white rounded-md shadow-lg hover:bg-gray-100 flex items-center gap-2'>
+                            <HiOutlineReceiptRefund className='text-xl text-slate-500' />
+                            <span className='text-slate-800'>Refund</span>
                         </button>
-                    </div> */}
+                    </div>
 
                     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead className="text-[#1D03BD] uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
@@ -69,10 +69,7 @@ export default function History() {
                                     Created At
                                 </th>
                                 <th scope="col" className="py-3 px-6">
-                                    Updated At
-                                </th>
-                                <th scope="col" className="py-3 px-6 text-right">
-                                    Action
+                                    Status
                                 </th>
                             </tr>
                         </thead>
@@ -80,7 +77,7 @@ export default function History() {
 
                             {ordersHistory.map((e, i) => {
                                 return (
-                                    <tr key={e.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <tr key={e.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 even:bg-slate-50">
                                         <th scope="row" className="py-4 px-6 font-medium text-gray-500 whitespace-nowrap dark:text-white">
                                             {i + 1}
                                         </th>
@@ -99,11 +96,12 @@ export default function History() {
                                             {e.created_at}
                                         </td>
                                         <td className="py-4 px-6">
-                                            {e.updated_at}
-                                        </td>
-                                        <td className="py-4 px-6 flex justify-end gap-4">
-                                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                            <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                                            <div className='bg-green-200 flex justify-center items-center h-6 w-6 rounded-full m-auto mb-2'>
+                                                <HiOutlineCheck className='text-lg text-green-500' />
+                                            </div>
+                                            <div>
+                                                <p>Completed</p>
+                                            </div>
                                         </td>
                                     </tr>
                                 )

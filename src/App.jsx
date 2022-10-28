@@ -3,9 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Menu from "./pages/Menu";
 import History from "./pages/History";
-import Favourite from "./pages/Favourite";
-import Management from "./pages/Management";
+import Inventory from "./pages/Inventory";
 import Settings from "./pages/Settings";
+import PaymentProvider from "./stores/PaymentProvider";
 
 
 export default function App() {
@@ -13,10 +13,13 @@ export default function App() {
 
     <Routes>
       <Route path={"/"} element={<MainLayout />}>
-        <Route index element={<Menu />} />
+        <Route index element={
+          <PaymentProvider>
+            <Menu />
+          </PaymentProvider>
+        } />
         <Route path="/history" element={<History />} />
-        <Route path="/favourite" element={<Favourite />} />
-        <Route path="/management" element={<Management />} />
+        <Route path="/inventory" element={<Inventory />} />
         <Route path="/settings" element={<Settings />} />
       </Route>
     </Routes>
