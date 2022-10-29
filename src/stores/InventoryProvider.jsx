@@ -1,19 +1,22 @@
 import React, { createContext, useState } from 'react';
 
-export const InventoryContext = createContext();
+export const CategoryContext = createContext();
 
 export default function InventoryProvider(props) {
 
     // state
-    const [showInventoryModal, setShowInventoryModal] = useState({
-        categoryModal: false,
+    const [showCategoryModal, setShowCategoryModal] = useState({
+        currentCategoryId: 1,
+        categoryCreateModal: false,
+        categoryEditModal: false,
+        categoryDeleteModal: false,
         categorySuccessModal: false,
         loadingScreen: false
     });
 
     return (
-        <InventoryContext.Provider value={[showInventoryModal, setShowInventoryModal]}>
+        <CategoryContext.Provider value={[showCategoryModal, setShowCategoryModal]}>
             {props.children}
-        </InventoryContext.Provider>
+        </CategoryContext.Provider>
     )
 }

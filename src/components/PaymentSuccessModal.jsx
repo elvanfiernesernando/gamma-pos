@@ -51,9 +51,9 @@ export default function PaymentSuccessModal() {
                 {/* form confirm */}
                 <form>
 
-                    <button type='submit' className='bg-[#1D03BD] hover:bg-[#190983] p-3 text-white flex-1 rounded-lg w-full outline-none disabled:bg-slate-500'>Print Bill</button>
+                    <button type='submit' className='bg-[#1D03BD] hover:bg-[#190983] p-3 text-white flex-1 rounded-lg w-full outline-none disabled:bg-slate-500'>Print Receipt</button>
 
-                    <h3 className='text-slate-400 pt-2 text-center'>Automatically close in {countDownTimer}</h3>
+                    <h3 className='text-slate-400 pt-2 text-center text-sm'>Automatically close in {countDownTimer}</h3>
 
                 </form>
 
