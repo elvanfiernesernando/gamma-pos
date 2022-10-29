@@ -59,7 +59,7 @@ export default function CategorySuccessModal() {
                         })
                     }}>Close</button>
 
-                    <h3 className='text-slate-400 pt-2 text-center'>Automatically close in {countDownTimer}</h3>
+                    <h3 className='text-slate-400 pt-2 text-center text-sm'>Automatically close in {countDownTimer}</h3>
 
                 </form>
 
