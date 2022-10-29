@@ -201,22 +201,26 @@ export default function Menu() {
                     </div>
 
                     {/* Category */}
-                    <div className='w-full overflow-x-auto scrollbar flex items-center gap-4 pb-4 px-10'>
-                        <button className={`px-8 py-4 bg-white shadow-lg rounded-lg ${activeCategory === "All" ? "border-solid border-2 border-[#1D03BD]" : "hover:border-2"}`} onClick={() => {
-                            getAllProducts();
-                            setActiveCategory("All");
-                        }}>All</button>
+                    <div className='w-full px-10'>
+                        <div className='w-full overflow-x-auto scrollbar flex items-center gap-4 pb-4'>
+                            <button className={`px-8 py-4 bg-white shadow-lg rounded-lg ${activeCategory === "All" ? "border-solid border-2 border-[#1D03BD]" : "hover:border-2"}`} onClick={() => {
+                                getAllProducts();
+                                setActiveCategory("All");
+                            }}>All</button>
 
-                        {categories.map((e) => {
-                            return (
-                                <button onClick={() => {
-                                    getProductsByCategory(e.id);
-                                    setActiveCategory(e.name);
-                                }} key={e.id} className={`px-8 py-4 bg-white shadow-lg rounded-lg ${activeCategory === e.name ? "border-solid border-2 border-[#1D03BD]" : "hover:border-2"}`}>{e.name}</button>
-                            )
-                        })}
+                            {categories.map((e) => {
+                                return (
+                                    <button onClick={() => {
+                                        getProductsByCategory(e.id);
+                                        setActiveCategory(e.name);
+                                    }} key={e.id} className={`px-8 py-4 bg-white shadow-lg rounded-lg ${activeCategory === e.name ? "border-solid border-2 border-[#1D03BD]" : "hover:border-2"}`}>{e.name}</button>
+                                )
+                            })}
 
+                        </div>
                     </div>
+
+
 
                     {/* Product Panel */}
                     <div className='flex-1 overflow-y-auto grid grid-cols-4 gap-4  overflow-x-hidden scrollbar pb-8 pl-10 pr-4 mr-4'>
