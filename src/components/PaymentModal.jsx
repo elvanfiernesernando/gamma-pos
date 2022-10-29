@@ -3,10 +3,12 @@ import { PaymentContext } from '../stores/PaymentProvider';
 import { HiOutlineX } from "react-icons/hi";
 import axios from 'axios';
 import { currencyFormat } from '../helpers/CurrencyHelper';
+import Lottie from "lottie-react";
+import loadingAnimation from "../assets/lottie/loadingAnimation.json"
 
 export default function PaymentModal() {
 
-    // context
+    // import payment context
     const [cart, setCart, total, setTotal, showPaymentModal, setShowPaymentModal] = useContext(PaymentContext);
 
     // state
@@ -20,6 +22,12 @@ export default function PaymentModal() {
     // handleSubmit
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        setShowPaymentModal({
+            ...showPaymentModal,
+            confirmModal: false,
+            loadingScreen: true
+        })
 
         const order_details = cart.map((e) => {
             return (
@@ -40,11 +48,12 @@ export default function PaymentModal() {
             total: total
         })
             .then((res) => {
-                alert("Order berhasil dibuat!");
                 setCart([]);
                 setShowPaymentModal({
                     ...showPaymentModal,
-                    confirmModal: false
+                    loadingScreen: false,
+                    confirmModal: false,
+                    successModal: true
                 })
             })
             .catch((error) => {

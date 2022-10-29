@@ -8,7 +8,8 @@ export default function PaymentProvider(props) {
     const [total, setTotal] = useState(0);
     const [showPaymentModal, setShowPaymentModal] = useState({
         confirmModal: false,
-        successModal: false
+        successModal: false,
+        loadingScreen: false
     });
 
     return (

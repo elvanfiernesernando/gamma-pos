@@ -3,7 +3,9 @@ import React, { useEffect, useState, useContext } from 'react';
 import { HiOutlineBell, HiOutlineSearch, HiOutlinePencilAlt, HiOutlinePlus, HiOutlineMinus, HiOutlineClipboardList } from 'react-icons/hi';
 import { PaymentContext } from '../stores/PaymentProvider';
 import PaymentModal from "../components/PaymentModal";
+import PaymentSuccessModal from "../components/PaymentSuccessModal";
 import { currencyFormat } from '../helpers/CurrencyHelper';
+import LoadingScreen from '../components/LoadingScreen';
 
 export default function Menu() {
 
@@ -331,6 +333,8 @@ export default function Menu() {
             </div >
 
             {showPaymentModal.confirmModal && <PaymentModal />}
+            {showPaymentModal.successModal && <PaymentSuccessModal />}
+            {showPaymentModal.loadingScreen && <LoadingScreen />}
 
         </>
 
