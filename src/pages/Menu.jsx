@@ -26,12 +26,15 @@ export default function Menu() {
 
     // component did update
     useEffect(() => {
+        // set updated cart to localstorage
         localStorage.setItem("cart", JSON.stringify(cart));
 
+        // sum price * qty in cart
         const result = cart.reduce((prev, current) => {
             return prev + (current.price * current.qty)
         }, 0)
 
+        // set total from result
         setTotal(result);
 
     }, [cart])
@@ -60,7 +63,6 @@ export default function Menu() {
 
     // get products by category id
     const getProductsByCategory = (id) => {
-
         axios.get(`http://localhost:5000/api/categories/${id}`)
             .then((res) => {
                 setProducts(res.data.data.products)
@@ -73,8 +75,10 @@ export default function Menu() {
     // search products
     const searchProducts = (e) => {
 
+        // clear current timer
         clearTimeout(timer)
 
+        // create new timer
         const newTimer = setTimeout(() => {
             const query = e.target.value;
 
@@ -90,6 +94,7 @@ export default function Menu() {
                 })
         }, 1000)
 
+        // set new timer
         setTimer(newTimer)
 
     }
@@ -179,7 +184,6 @@ export default function Menu() {
 
     // render
     return (
-
         <>
 
             <div className='w-full h-full flex'>
@@ -220,8 +224,6 @@ export default function Menu() {
                         </div>
                     </div>
 
-
-
                     {/* Product Panel */}
                     <div className='flex-1 overflow-y-auto grid grid-cols-4 gap-4  overflow-x-hidden scrollbar pb-8 pl-10 pr-4 mr-4'>
 
@@ -242,13 +244,11 @@ export default function Menu() {
 
                 </div>
 
-
                 {/* Right content */}
                 <div className='w-[350px] flex flex-col pr-10 py-10 gap-4'>
 
                     {/* Customer */}
                     <div className='flex justify-between items-center h-12 bg-white shadow-lg gap-4 rounded-lg'>
-                        {/* <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" /> */}
                         <h3 className='text-slate-700 pl-4 py-4 w-full font-semibold'>New Customer</h3>
                         <button className='h-full p-4'>
                             <HiOutlinePencilAlt className='text-2xl text-slate-500 hover:text-[#1D03BD]' />
@@ -263,7 +263,6 @@ export default function Menu() {
                             <h2 className='text-slate-700 font-semibold'>Current Order</h2>
                             <hr />
                         </div>
-
 
                         {/* Cart List */}
                         <div className='flex flex-col gap-4 overflow-y-auto scrollbar max-h-[285px] 2xl:max-h-[570px] flex-1'>
@@ -300,7 +299,6 @@ export default function Menu() {
                             })}
 
                         </div>
-
 
                         {/* Footer order */}
                         <div className='flex flex-col gap-2'>
@@ -341,6 +339,5 @@ export default function Menu() {
             {showPaymentModal.loadingScreen && <LoadingScreen />}
 
         </>
-
     )
 }

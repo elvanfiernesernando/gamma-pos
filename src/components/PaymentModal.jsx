@@ -13,6 +13,7 @@ export default function PaymentModal() {
 
     // state
     const [paymentCash, setPaymentCash] = useState(0);
+    const changes = (paymentCash - total);
 
     // handle payment cash
     const handlePaymentCash = (e) => {
@@ -84,7 +85,7 @@ export default function PaymentModal() {
                 {/* changes display */}
                 <div className='flex flex-col'>
                     <h2 className='uppercase font-semibold text-gray-900 text-center'>Changes</h2>
-                    <h2 className={`text-center text-2xl font-semibold text-black ${(paymentCash - total) < 0 ? "bg-red-200 border border-red-500" : "bg-green-200 border border-green-500"} flex-1 p-2 my-6 rounded-md`}>{currencyFormat((paymentCash - total) === 0 ? "-" : `Rp. ${(paymentCash - total)}`)}</h2>
+                    <h2 className={`text-center text-2xl font-semibold text-black ${(paymentCash - total) < 0 ? "bg-red-200 border border-red-500" : "bg-green-200 border border-green-500"} flex-1 p-2 my-6 rounded-md`}>{currencyFormat(changes === 0 ? "-" : `Rp. ${changes}`)}</h2>
                 </div>
 
                 {/* form confirm */}

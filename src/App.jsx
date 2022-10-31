@@ -7,7 +7,6 @@ import Inventory from "./pages/Inventory";
 import Settings from "./pages/Settings";
 import PaymentProvider from "./stores/PaymentProvider";
 import InventoryProvider from "./stores/InventoryProvider";
-import CategoryDeleteModal from "./components/CategoryDeleteModal";
 
 
 export default function App() {
@@ -27,7 +26,6 @@ export default function App() {
           </InventoryProvider>
         } />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/delete" element={<CategoryDeleteModal />} />
       </Route>
     </Routes>
 

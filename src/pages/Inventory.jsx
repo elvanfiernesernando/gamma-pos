@@ -1,13 +1,26 @@
+// mandatory
 import React, { useState, useEffect, useContext } from 'react';
-import { HiPlus } from "react-icons/hi";
-import { currencyFormat } from '../helpers/CurrencyHelper';
 import axios from 'axios';
-import { CategoryContext } from '../stores/InventoryProvider';
+
+// helpers
+import { currencyFormat } from '../helpers/CurrencyHelper';
+import { HiPlus } from "react-icons/hi";
+
+// context
+import { CategoryContext, ProductContext } from '../stores/InventoryProvider';
+
+// modal
 import CategoryCreateModal from '../components/CategoryCreateModal';
 import CategoryEditModal from '../components/CategoryEditModal';
 import CategoryDeleteModal from '../components/CategoryDeleteModal';
 import CategorySuccessModal from '../components/CategorySuccessModal';
+
+import ProductCreateModal from '../components/ProductCreateModal';
+import ProductEditModal from '../components/ProductEditModal';
+import ProductSuccessModal from '../components/ProductSuccessModal';
+
 import LoadingScreen from "../components/LoadingScreen";
+import ProductDeleteModal from '../components/ProductDeleteModal';
 
 export default function Inventory() {
 
@@ -17,6 +30,7 @@ export default function Inventory() {
 
     // context
     const [showCategoryModal, setShowCategoryModal] = useContext(CategoryContext);
+    const [showProductModal, setShowProductModal] = useContext(ProductContext);
 
     // component did mount
     useEffect(() => {
@@ -135,8 +149,6 @@ export default function Inventory() {
                                     )
                                 })}
 
-
-
                             </tbody>
 
                         </table>
@@ -156,7 +168,12 @@ export default function Inventory() {
                         {/* header */}
                         <div className='flex justify-between mb-4'>
                             <h3 className='font-semibold text-white text-lg'>Products</h3>
-                            <button className='text-grey-400 font-semibold py-2 px-4 bg-white rounded-md shadow-lg hover:bg-gray-100 flex items-center gap-1'>
+                            <button className='text-grey-400 font-semibold py-2 px-4 bg-white rounded-md shadow-lg hover:bg-gray-100 flex items-center gap-1' onClick={() => {
+                                setShowProductModal({
+                                    ...showProductModal,
+                                    productCreateModal: true
+                                })
+                            }}>
                                 <HiPlus className='text-lg' />
                                 Create New
                             </button>
@@ -215,8 +232,19 @@ export default function Inventory() {
                                                 {e.updated_at}
                                             </td>
                                             <td className="py-4 px-6 flex justify-end gap-4">
-                                                <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                                <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                                                <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={() => {
+                                                    setShowProductModal({
+                                                        ...showProductModal,
+                                                        currentProductId: e.id,
+                                                        productEditModal: true
+                                                    })
+                                                }}>Edit</a>
+                                                <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline" onClick={() => {
+                                                    setShowProductModal({
+                                                        currentProductId: e.id,
+                                                        productDeleteModal: true
+                                                    })
+                                                }}>Delete</a>
                                             </td>
                                         </tr>
                                     )
@@ -237,6 +265,14 @@ export default function Inventory() {
             {showCategoryModal.categoryDeleteModal && <CategoryDeleteModal getCategories={getAllCategories} />}
             {showCategoryModal.categorySuccessModal && <CategorySuccessModal />}
             {showCategoryModal.loadingScreen && <LoadingScreen />}
+
+
+            {/* product modal */}
+            {showProductModal.productCreateModal && <ProductCreateModal getProducts={getAllProducts} />}
+            {showProductModal.productEditModal && <ProductEditModal getProducts={getAllProducts} />}
+            {showProductModal.productDeleteModal && <ProductDeleteModal getProducts={getAllProducts} />}
+            {showProductModal.productSuccessModal && <ProductSuccessModal />}
+            {showProductModal.loadingScreen && <LoadingScreen />}
 
         </>
     )
