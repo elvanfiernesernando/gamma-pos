@@ -3,27 +3,27 @@ import { PaymentContext } from '../stores/PaymentProvider';
 import { HiOutlineX } from "react-icons/hi";
 import axios from 'axios';
 import { currencyFormat } from '../helpers/CurrencyHelper';
-import Lottie from "lottie-react";
-import loadingAnimation from "../assets/lottie/loadingAnimation.json"
+import { useForm } from 'react-hook-form';
 
 export default function PaymentModal() {
 
     // import payment context
-    const [cart, setCart, total, setTotal, showPaymentModal, setShowPaymentModal] = useContext(PaymentContext);
+    const [cart, setCart, total, , showPaymentModal, setShowPaymentModal] = useContext(PaymentContext);
 
-    // state
-    const [paymentCash, setPaymentCash] = useState(0);
-    const changes = (paymentCash - total);
+    // hook form
+    const { register, handleSubmit, watch, setValue, getValues } = useForm({
+        defaultValues: {
+            payment: 0
+        }
+    });
 
-    // handle payment cash
-    const handlePaymentCash = (e) => {
-        setPaymentCash(e.target.value);
-    }
+    // variables
+    const changes = (watch("payment") - total);
 
-    // handleSubmit
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    // create order
+    const createOrder = (data) => {
 
+        // loading screen
         setShowPaymentModal({
             ...showPaymentModal,
             confirmModal: false,
@@ -46,7 +46,9 @@ export default function PaymentModal() {
 
         axios.post("http://localhost:5000/api/orders", {
             order_details: order_details,
-            total: total
+            total: total,
+            payment: data.payment,
+            changes: changes
         })
             .then((res) => {
                 setCart([]);
@@ -85,11 +87,13 @@ export default function PaymentModal() {
                 {/* changes display */}
                 <div className='flex flex-col'>
                     <h2 className='uppercase font-semibold text-gray-900 text-center'>Changes</h2>
-                    <h2 className={`text-center text-2xl font-semibold text-black ${(paymentCash - total) < 0 ? "bg-red-200 border border-red-500" : "bg-green-200 border border-green-500"} flex-1 p-2 my-6 rounded-md`}>{currencyFormat(changes === 0 ? "-" : `Rp. ${changes}`)}</h2>
+
+                    <h2 className={`text-center text-2xl font-semibold text-black ${(changes) < 0 ? "bg-red-200 border border-red-500" : "bg-green-200 border border-green-500"} flex-1 p-2 my-6 rounded-md`}>{currencyFormat(changes === 0 ? "-" : `Rp. ${changes}`)}</h2>
+
                 </div>
 
                 {/* form confirm */}
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit(createOrder)}>
 
                     {/* total */}
                     <div className='flex justify-between items-center'>
@@ -107,15 +111,30 @@ export default function PaymentModal() {
                             <h2 className='font-semibold text-slate-700 p-2'>:</h2>
                         </div>
 
-                        {/* input payment cash */}
+                        {/* input payment */}
                         <div>
                             <span className='text-xl font-semibold text-slate-700'>Rp. </span>
-                            <input type={"number"} className='w-40 uppercase text-xl font-semibold text-slate-700 text-end border focus:border-[#190983] outline-none px-2' autoFocus onChange={handlePaymentCash} />
+
+
+                            <input type={"number"} className='w-40 uppercase text-xl font-semibold text-slate-700 text-end border focus:border-[#190983] outline-none px-2' autoFocus {...register("payment", {
+                                required: true,
+                                valueAsNumber: true,
+                                onChange: (e) => {
+
+                                    setValue("payment", parseInt(e.target.value));
+
+                                    if (e.target.value === "") {
+                                        setValue("payment", 0)
+                                    }
+                                }
+                            })} />
+
+
                         </div>
 
                     </div>
 
-                    <button type='submit' className='bg-[#1D03BD] hover:bg-[#190983] p-3 text-white flex-1 rounded-lg w-full outline-none disabled:bg-slate-500' disabled={(paymentCash - total) < 0} >Confirm Payment</button>
+                    <button type='submit' className='bg-[#1D03BD] hover:bg-[#190983] p-3 text-white flex-1 rounded-lg w-full outline-none disabled:bg-slate-500' disabled={(watch("payment") - total) < 0} >Confirm Payment</button>
                 </form>
 
             </div>

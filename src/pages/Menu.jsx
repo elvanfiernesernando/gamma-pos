@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react';
-import { HiOutlineBell, HiOutlineSearch, HiOutlinePencilAlt, HiOutlinePlus, HiOutlineMinus, HiOutlineClipboardList } from 'react-icons/hi';
+import { HiOutlineBell, HiOutlineSearch, HiOutlinePencilAlt, HiOutlinePlus, HiOutlineMinus, HiOutlineClipboardList, HiOutlineShoppingCart } from 'react-icons/hi';
 import { PaymentContext } from '../stores/PaymentProvider';
 import PaymentModal from "../components/PaymentModal";
 import PaymentSuccessModal from "../components/PaymentSuccessModal";
@@ -37,7 +37,7 @@ export default function Menu() {
         // set total from result
         setTotal(result);
 
-    }, [cart])
+    }, [cart, setTotal])
 
     // get all categories
     const getAllCategories = () => {
@@ -224,13 +224,20 @@ export default function Menu() {
                         </div>
                     </div>
 
+                    {/* No data */}
+                    {/* <div className='w-full h-96 px-10 flex flex-col justify-center items-center gap-4'>
+                        <HiOutlineShoppingCart className='text-slate-200 text-[150px]' />
+                        <h3 className='text-slate-500 text-center'>You haven't created any product yet</h3>
+                        <button className='bg-[#1D03BD] hover:bg-[#190983] py-2 px-4 text-white rounded-lg outline-none'>Create Product</button>
+                    </div> */}
+
                     {/* Product Panel */}
                     <div className='flex-1 overflow-y-auto grid grid-cols-4 gap-4  overflow-x-hidden scrollbar pb-8 pl-10 pr-4 mr-4'>
 
                         {products.map((e) => {
                             return (
                                 <article key={e.id} className='h-[314px] flex flex-col bg-white items-center p-4 rounded-lg shadow-lg gap-4'>
-                                    <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} />
+                                    <img src="https://via.placeholder.com/132" className='rounded-full object-cover' width={"132px"} height={"132px"} alt={e.name} />
                                     <h3 className='font-semibold text-[#1D03BD]'>{e.name}</h3>
                                     <p>Rp. {currencyFormat(e.price)}</p>
                                     <button className='w-full py-2 mt-2 bg-[#1D03BD] hover:bg-[#190983] text-white rounded-lg outline-none' onClick={() => {
@@ -270,7 +277,7 @@ export default function Menu() {
                             {cart.map((e) => {
                                 return (
                                     <article key={e.id} className='flex justify-between items-center'>
-                                        <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" />
+                                        <img src="https://via.placeholder.com/32" width={"32px"} height={"32px"} className="rounded-full" alt={e.name} />
                                         <div className='flex flex-col justify-center flex-1 px-4'>
                                             <h3 className=' text-[#1D03BD] font-semibold text-sm'>{e.name}</h3>
                                             <p className=' text-slate-500 text-sm'>Rp. {currencyFormat(e.price)}</p>
