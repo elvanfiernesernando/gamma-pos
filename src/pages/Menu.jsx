@@ -68,7 +68,7 @@ export default function Menu() {
 
     // get products by category id
     const getProductsByCategory = (id) => {
-        axios.get(`http://localhost:5000/api/categories/${id}`)
+        axios.get(BASE_URL + `/api/categories/${id}`)
             .then((res) => {
                 setProducts(res.data.data.products)
             })

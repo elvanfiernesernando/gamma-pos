@@ -45,7 +45,7 @@ export default function ProductDeleteModal(props) {
 
                 {/* modal header */}
                 <div className='w-full'>
-                    <h2 className='uppercase font-semibold text-gray-900 text-center mb-5'>Delete Category</h2>
+                    <h2 className='uppercase font-semibold text-gray-900 text-center mb-5'>Delete Product</h2>
                     <hr />
                     <HiOutlineX className='absolute top-3 right-3 text-xl cursor-pointer' onClick={() => {
                         setShowProductModal({
@@ -58,7 +58,7 @@ export default function ProductDeleteModal(props) {
                 {/* form confirm */}
                 <form onSubmit={handleSubmit}>
 
-                    <h3>Are you sure want to delete this category?</h3>
+                    <h3>Are you sure want to delete this product?</h3>
 
                     <div className='w-full flex gap-4'>
                         <button type='submit' className='bg-red-500 hover:bg-red-700 p-3 text-white flex-1 rounded-lg w-full outline-none mt-4' onClick={() => {

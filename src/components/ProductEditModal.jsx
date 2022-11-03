@@ -62,7 +62,7 @@ export default function ProductEditModal(props) {
             loadingScreen: true
         })
 
-        axios.patch(`http://localhost:5000/api/products/${currentProduct.id}`, {
+        axios.patch(BASE_URL + `/api/products/${currentProduct.id}`, {
             name: data.name,
             price: data.price,
             categories_id: data.categories_id
