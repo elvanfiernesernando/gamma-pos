@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { HiOutlineLightBulb, HiOutlineShoppingBag, HiOutlineCog, HiOutlineArchive, HiOutlineHeart, HiOutlineLogout, HiOutlineCollection } from 'react-icons/hi'
+import { HiOutlineLightBulb, HiOutlineShoppingBag, HiOutlineCog, HiOutlineArchive, HiOutlineLogout, HiOutlineCollection } from 'react-icons/hi'
 
 export default function Sidebar() {
 

@@ -1,11 +1,15 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { currencyFormat } from "../helpers/CurrencyHelper"
 import { HiOutlineReceiptRefund, HiOutlineCheck } from "react-icons/hi";
 
 export default function History() {
 
-    const [ordersHistory, setOrdersHistory] = useState([]);
+    // BASE URL
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
 
+    // state
+    const [ordersHistory, setOrdersHistory] = useState([]);
 
     // component did mount
     useEffect(() => {
@@ -14,21 +18,13 @@ export default function History() {
 
     // get all orders
     const getAllOrders = () => {
-        axios.get("http://localhost:5000/api/orders")
+        axios.get(BASE_URL + "/api/orders")
             .then((res) => {
                 setOrdersHistory(res.data.data);
             })
             .catch((error) => {
                 console.error(error)
             })
-    }
-
-    // format currency
-    const currencyFormat = (number) => {
-        return (number || "")
-            .toString()
-            .replace(/^0|\./g, "")
-            .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
     }
 
     return (

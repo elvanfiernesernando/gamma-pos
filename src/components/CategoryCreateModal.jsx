@@ -6,6 +6,9 @@ import axios from 'axios';
 
 export default function CategoryCreateModal(props) {
 
+    // BASE URL
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
+
     // hook form
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
@@ -21,11 +24,11 @@ export default function CategoryCreateModal(props) {
             loadingScreen: true
         })
 
-        axios.post("http://localhost:5000/api/categories", {
+        axios.post(BASE_URL + "/api/categories", {
             name: data.name
         })
             .then(async (res) => {
-                await props.getCategories()
+                await props.getCategories();
 
                 setShowCategoryModal({
                     ...showCategoryModal,

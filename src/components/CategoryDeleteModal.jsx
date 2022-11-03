@@ -5,6 +5,9 @@ import axios from 'axios';
 
 export default function CategoryDeleteModal(props) {
 
+    // BASE URL
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
+
     // context
     const [showCategoryModal, setShowCategoryModal] = useContext(CategoryContext);
 
@@ -18,7 +21,7 @@ export default function CategoryDeleteModal(props) {
             loadingScreen: true,
         })
 
-        axios.delete(`http://localhost:5000/api/categories/${showCategoryModal.currentCategoryId}`)
+        axios.delete(BASE_URL + `/api/categories/${showCategoryModal.currentCategoryId}`)
             .then((res) => {
                 setShowCategoryModal({
                     ...showCategoryModal,

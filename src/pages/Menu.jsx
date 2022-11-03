@@ -1,19 +1,24 @@
 import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react';
-import { HiOutlineBell, HiOutlineSearch, HiOutlinePencilAlt, HiOutlinePlus, HiOutlineMinus, HiOutlineClipboardList, HiOutlineShoppingCart } from 'react-icons/hi';
+import { HiOutlineBell, HiOutlineSearch, HiOutlinePencilAlt, HiOutlinePlus, HiOutlineMinus, HiOutlineClipboardList } from 'react-icons/hi';
 import { PaymentContext } from '../stores/PaymentProvider';
 import PaymentModal from "../components/PaymentModal";
 import PaymentSuccessModal from "../components/PaymentSuccessModal";
 import { currencyFormat } from '../helpers/CurrencyHelper';
 import LoadingScreen from '../components/LoadingScreen';
 
+
 export default function Menu() {
+
+    // BASE URL
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
 
     // state
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [activeCategory, setActiveCategory] = useState("All");
     const [timer, setTimer] = useState(null);
+
 
     // context
     const [cart, setCart, total, setTotal, showPaymentModal, setShowPaymentModal] = useContext(PaymentContext);
@@ -41,7 +46,7 @@ export default function Menu() {
 
     // get all categories
     const getAllCategories = () => {
-        axios.get("http://localhost:5000/api/categories")
+        axios.get(BASE_URL + "/api/categories")
             .then((res) => {
                 setCategories(res.data.data);
             })
@@ -52,7 +57,7 @@ export default function Menu() {
 
     // get all products
     const getAllProducts = () => {
-        axios.get("http://localhost:5000/api/products")
+        axios.get(BASE_URL + "/api/products")
             .then((res) => {
                 setProducts(res.data.data)
             })
@@ -82,7 +87,7 @@ export default function Menu() {
         const newTimer = setTimeout(() => {
             const query = e.target.value;
 
-            axios.post("http://localhost:5000/api/products/search", {
+            axios.post(BASE_URL + "/api/products/search", {
                 query: query
             })
                 .then((res) => {

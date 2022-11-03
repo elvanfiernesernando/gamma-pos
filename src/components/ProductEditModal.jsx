@@ -7,6 +7,9 @@ import axios from 'axios';
 
 export default function ProductEditModal(props) {
 
+    // BASE URL
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
+
     // context
     const [showProductModal, setShowProductModal] = useContext(ProductContext);
 
@@ -25,7 +28,7 @@ export default function ProductEditModal(props) {
 
     // get all categories
     const getAllCategories = () => {
-        axios.get("http://localhost:5000/api/categories")
+        axios.get(BASE_URL + "/api/categories")
             .then((res) => {
                 setCategories(res.data.data)
             })
@@ -36,7 +39,7 @@ export default function ProductEditModal(props) {
 
     // get current product
     const getCurrentProduct = () => {
-        axios.get(`http://localhost:5000/api/products/${showProductModal.currentProductId}`)
+        axios.get(BASE_URL + `/api/products/${showProductModal.currentProductId}`)
             .then((res) => {
                 setCurrentProduct(res.data.data);
                 reset({

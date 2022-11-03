@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { PaymentContext } from '../stores/PaymentProvider';
 import { HiOutlineX } from "react-icons/hi";
 import axios from 'axios';
@@ -6,6 +6,9 @@ import { currencyFormat } from '../helpers/CurrencyHelper';
 import { useForm } from 'react-hook-form';
 
 export default function PaymentModal() {
+
+    // BASE URL
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
 
     // import payment context
     const [cart, setCart, total, , showPaymentModal, setShowPaymentModal] = useContext(PaymentContext);
@@ -44,7 +47,7 @@ export default function PaymentModal() {
             return alert("Cart is empty!")
         }
 
-        axios.post("http://localhost:5000/api/orders", {
+        axios.post(BASE_URL + "/api/orders", {
             order_details: order_details,
             total: total,
             payment: data.payment,

@@ -6,6 +6,9 @@ import axios from 'axios';
 
 export default function CategoryEditModal(props) {
 
+    // BASE URL
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
+
     // hook form
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
@@ -24,7 +27,7 @@ export default function CategoryEditModal(props) {
 
     // get current category
     const getCurrentCategory = () => {
-        axios.get(`http://localhost:5000/api/categories/${showCategoryModal.currentCategoryId}`)
+        axios.get(BASE_URL + `/api/categories/${showCategoryModal.currentCategoryId}`)
             .then((res) => {
                 setCurrentCategory(res.data.data);
             })
@@ -42,7 +45,7 @@ export default function CategoryEditModal(props) {
             loadingScreen: true
         })
 
-        axios.patch(`http://localhost:5000/api/categories/${showCategoryModal.currentCategoryId}`, {
+        axios.patch(BASE_URL + `/api/categories/${showCategoryModal.currentCategoryId}`, {
             name: data.name
         })
             .then((res) => {

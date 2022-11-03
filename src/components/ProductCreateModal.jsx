@@ -7,6 +7,9 @@ import axios from 'axios';
 
 export default function ProductCreateModal(props) {
 
+    // BASE URL
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
+
     // context
     const [showProductModal, setShowProductModal] = useContext(ProductContext);
 
@@ -25,7 +28,7 @@ export default function ProductCreateModal(props) {
             loadingScreen: true
         })
 
-        axios.post("http://localhost:5000/api/products", {
+        axios.post(BASE_URL + "/api/products", {
             name: data.name,
             price: parseInt(data.price),
             categories_id: parseInt(data.categories_id)
@@ -46,7 +49,7 @@ export default function ProductCreateModal(props) {
 
     // get all categories
     const getAllCategories = () => {
-        axios.get("http://localhost:5000/api/categories")
+        axios.get(BASE_URL + "/api/categories")
             .then((res) => {
                 setCategories(res.data.data)
             })

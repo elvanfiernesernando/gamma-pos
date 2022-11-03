@@ -24,6 +24,9 @@ import ProductDeleteModal from '../components/ProductDeleteModal';
 
 export default function Inventory() {
 
+    // BASE URL
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
+
     // state
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
@@ -40,7 +43,7 @@ export default function Inventory() {
 
     // get all categories
     const getAllCategories = () => {
-        axios.get("http://localhost:5000/api/categories")
+        axios.get(BASE_URL + "/api/categories")
             .then((res) => {
                 setCategories(res.data.data);
             })
@@ -51,7 +54,7 @@ export default function Inventory() {
 
     // get all products
     const getAllProducts = () => {
-        axios.get("http://localhost:5000/api/products")
+        axios.get(BASE_URL + "/api/products")
             .then((res) => {
                 setProducts(res.data.data)
             })

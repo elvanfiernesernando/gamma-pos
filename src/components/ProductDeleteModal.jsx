@@ -5,6 +5,9 @@ import axios from 'axios';
 
 export default function ProductDeleteModal(props) {
 
+    // BASE URL
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
+
     // context
     const [showProductModal, setShowProductModal] = useContext(ProductContext);
 
@@ -18,7 +21,7 @@ export default function ProductDeleteModal(props) {
             loadingScreen: true,
         })
 
-        axios.delete(`http://localhost:5000/api/products/${showProductModal.currentProductId}`)
+        axios.delete(BASE_URL + `/api/products/${showProductModal.currentProductId}`)
             .then((res) => {
                 setShowProductModal({
                     ...showProductModal,
