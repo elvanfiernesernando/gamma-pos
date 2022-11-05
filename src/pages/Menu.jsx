@@ -87,8 +87,10 @@ export default function Menu() {
         const newTimer = setTimeout(() => {
             const query = e.target.value;
 
-            axios.post(BASE_URL + "/api/products/search", {
-                query: query
+            axios.get(BASE_URL + "/api/products/search", {
+                params: {
+                    q: query
+                }
             })
                 .then((res) => {
                     setProducts(res.data.data);
