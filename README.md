@@ -1,70 +1,104 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Logo](https://i.ibb.co/SrBp74s/Front-End.png)
+# Gamma Point of Sales (Front End Side)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Point of Sales:
+    - Search product
+    - Filter product by category
+    - Add product to cart
+    - Calculate money change
+    - Order history
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Category Management:
+    - Create category
+    - Edit category
+    - Delete category
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Product Management:
+    - Create product
+    - Edit product
+    - Delete product
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
 
-### `npm run build`
+### Point of Sales
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![App Screenshot](https://i.ibb.co/wKdjPf1/gamma-pos-1.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![App Screenshot](https://i.ibb.co/h8RPCH3/gamma-pos-2.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![App Screenshot](https://i.ibb.co/37jwwPR/gamma-pos-3.png)
 
-### `npm run eject`
+![App Screenshot](https://i.ibb.co/kq14gKv/Mask-group.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Order History
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![App Screenshot](https://i.ibb.co/Cvgf2Kw/gamma-pos-order-history.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Inventory Management
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![App Screenshot](https://i.ibb.co/ftvyLxR/gamma-pos-inventory.png)
 
-## Learn More
+![App Screenshot](https://i.ibb.co/tbcn56K/gamma-pos-create-category.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![App Screenshot](https://i.ibb.co/qr7XSRy/Mask-group-1.png)
+## Requirement
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This is the FRONT END SIDE of Gamma POS, please install and run the back end side in order to run this project:
 
-### Code Splitting
+https://github.com/elvanfiernesernando/backend-gamma-pos
+## Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To install this project run this command:
 
-### Analyzing the Bundle Size
+Clone the project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+  git clone https://github.com/elvanfiernesernando/gamma-pos.git
+```
 
-### Making a Progressive Web App
+Go to the project directory
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+  cd gamma-pos
+```
 
-### Advanced Configuration
+### Client Side
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Install client dependencies
 
-### Deployment
+```bash
+  npm install
+```
+Create .env file in root project and insert this:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+  REACT_APP_BASE_URL=yourbackendbaseurl
 
-### `npm run build` fails to minify
+  // change yourbackendbaseurl
+```
+Run client
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+  npm run start
+
+  // client is running on port 3000
+```
+## Tech Stack
+
+**Client:** React JS, TailwindCSS
+
+**Server:** Node JS, Express JS
+
+**Database:** MySQL
+
+
+## 🚀 About Me
+Hi, I'm Elvan Fiernes Ernando
+
+I'm a full stack developer...
+
